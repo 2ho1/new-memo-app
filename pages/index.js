@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useAuth } from '../contexts/AuthContext'
-import { LoginForm } from '../components/LoginForm'
-import { RegisterForm } from '../components/RegisterForm'
-import { MemoList } from '../components/MemoList'
-import { MemoForm } from '../components/MemoForm'
-import { Header } from '../components/Header'
+import { useAuth } from '../src/contexts/AuthContext'
+import { LoginForm } from '../src/components/LoginForm'
+import { RegisterForm } from '../src/components/RegisterForm'
+import { MemoList } from '../src/components/MemoList'
+import { MemoForm } from '../src/components/MemoForm'
+import { Header } from '../src/components/Header'
 
 export default function Home() {
   const { user, loading } = useAuth()
