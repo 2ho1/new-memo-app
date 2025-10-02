@@ -1,34 +1,23 @@
-'use client'
-
 import { useState, useEffect } from 'react'
-import { useAuth } from '@/contexts/AuthContext'
-import { LoginForm } from '@/components/LoginForm'
-import { RegisterForm } from '@/components/RegisterForm'
-import { MemoList } from '@/components/MemoList'
-import { MemoForm } from '@/components/MemoForm'
-import { Header } from '@/components/Header'
-
-interface Memo {
-  id: string
-  title: string
-  content: string
-  isPinned: boolean
-  createdAt: string
-  updatedAt: string
-}
+import { useAuth } from '../contexts/AuthContext'
+import { LoginForm } from '../components/LoginForm'
+import { RegisterForm } from '../components/RegisterForm'
+import { MemoList } from '../components/MemoList'
+import { MemoForm } from '../components/MemoForm'
+import { Header } from '../components/Header'
 
 export default function Home() {
   const { user, loading } = useAuth()
   const [isLogin, setIsLogin] = useState(true)
   const [showMemoForm, setShowMemoForm] = useState(false)
-  const [editingMemo, setEditingMemo] = useState<Memo | undefined>(undefined)
+  const [editingMemo, setEditingMemo] = useState(undefined)
   const [refreshTrigger, setRefreshTrigger] = useState(0)
 
   const handleToggleAuthMode = () => {
     setIsLogin(!isLogin)
   }
 
-  const handleEditMemo = (memo: Memo) => {
+  const handleEditMemo = (memo) => {
     setEditingMemo(memo)
     setShowMemoForm(true)
   }
